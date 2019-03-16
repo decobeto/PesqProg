@@ -1,0 +1,87 @@
+﻿@model PesqProg.Models.ProgResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pesquisa sobre Programadores</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <title>Pesquisa sobre programação</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <div asp-validation-summary="All"></div>
+    <form asp-action="RsvpForm" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Name">Nome</label>
+                <input asp-for="Name" class="form-control" placeholder="Insira seu nome">
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Insira seu e-mail">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Phone">Telefone</label>
+                <input asp-for="Phone" class="form-control" placeholder="Insira seu telefone">
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="Age">Idade</label>
+                <input asp-for="Age" class="form-control" placeholder="Insira sua idade">
+            </div>
+            <div class="form-group col-md-2">
+                <label>Sexo</label>
+                <select asp-for="Sexo" class="form-control">
+                    <option value="">Escolha uma opção</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label>Trabalha na Área?</label>
+                <select asp-for=" TrabalhaArea" class="form-control">
+                    <option value="">Escolha uma opção</option>
+                    <option value="true">Sim</option>
+                    <option value="false">Não</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Escolha as linguagens qual você conhece ou trabalha:</label>
+            <br />
+            @for (var i = 0; i < Model.ItemProgs.Count; i++)
+            {
+                <div class="form-check form-check-inline">
+                    <input id="@Model.ItemProgs[i].Id"
+                           type="checkbox"
+                           asp-for="@Model.ItemProgs[i].IsChecked"
+                           checked="@Model.ItemProgs[i].IsChecked"
+                           class="form-check-input" />
+                    <label asp-for="@Model.ItemProgs[i].Text" class="form-check-label">
+                        @Model.ItemProgs[i].Text
+                    </label>
+                    <input type="hidden" asp-for="@Model.ItemProgs[i].Id" />
+                    <input type="hidden" asp-for="@Model.ItemProgs[i].Text" />
+                </div>
+            }
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar Dados</button>
+        <a class="btn btn-danger" asp-action="Index">Voltar</a>
+    </form>
+</body>
+</html>
+
+
+<style>
+    html {
+        padding: 50px;
+    }
+</style>

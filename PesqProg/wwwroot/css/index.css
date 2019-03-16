@@ -1,0 +1,27 @@
+﻿body {
+    background-image: url('../images/bg_index.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+html {
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 5rem;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+}
+
+p {
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
+}
+
+.texto_menu{
+    padding: 33rem;
+}

@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <h2>Lista de Desenvolvedores</h2>
+    <br />
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <td><strong>Nome</strong></td>
+                <td><strong>Email</strong></td>
+                <td><strong>Telefone</strong></td>
+                <td><strong>Trabalha na Área</strong></td>
+                <td><strong>Linguagens</strong></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (PesqProg.Models.ProgResponse r in Model)
+            {
+                <tr>
+                    <td>@r.Name</td>
+                    <td>@r.Email</td>
+                    <td>@r.Phone</td>
+                    @if (r.TrabalhaArea == true)
+                    {
+                        <td style="text-align: center;"><i class="fas fa-check"></i></td>
+                    }
+                    else
+                    {
+                        <td style="text-align: center;"><i class="fas fa-times"></i></td>
+                    }
+                    <td>
+                        <ul>
+                            @foreach (CheckboxItemProg i in r.ItemProgs)
+                            {
+                                @if (i.IsChecked)
+                                {
+                                    <li>@i.Text</li>
+                                }
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Index" class="btn btn-success">Voltar ao Início</a>
+</body>
+</html>
+
+<style>
+    html{
+        padding: 50px;
+    }
+</style>

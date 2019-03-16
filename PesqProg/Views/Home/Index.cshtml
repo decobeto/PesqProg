@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "PEsquisa Sobre Programadores";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pesquisa sobre Programadores</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div>
+            <div class="texto_menu">
+                <h1>
+                    Encontre programadores para trabalhar em projetos!
+                </h1>
+                <p >
+                    Se inscreva ou veja a <strong>Lista!</strong>
+                </p>
+                <div class="botao">
+                    <a class="btn btn-primary" asp-action="RsvpForm" >Se inscrever</a>
+                    <a class="btn btn-success" asp-action="ListResponse">Ver Lista</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
