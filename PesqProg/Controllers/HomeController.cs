@@ -67,6 +67,18 @@ namespace PesqProg.Controllers
             return View(Repository.responses);
         }
 
+        [HttpGet]
+        public ActionResult MostraTrabalho()
+        {
+            return View("ListResponses", Repository.responses.Where(r => r.TrabalhaArea == true));
+        }
+
+        [HttpGet]
+        public ActionResult MostraNaoTrabalho()
+        {
+            return View("ListResponses", Repository.responses.Where(r => r.TrabalhaArea == false));
+        }
+
 
         /*
         public IActionResult Index()

@@ -13,6 +13,9 @@
 </head>
 <body>
     <h2>Lista de Desenvolvedores</h2>
+    <h5>Filtros:</h5>
+    <a class="btn btn-primary btn-sm" asp-action="MostraTrabalho">Trabalha na área</a>
+    <a class="btn btn-primary btn-sm" asp-action="MostraNaoTrabalho">Não trabalha na área</a>
     <br />
     <br />
     <table class="table">
@@ -21,7 +24,7 @@
                 <td><strong>Nome</strong></td>
                 <td><strong>Email</strong></td>
                 <td><strong>Telefone</strong></td>
-                <td><strong>Trabalha na Área</strong></td>
+                <td style="text-align:center;"><strong>Trabalha na Área</strong></td>
                 <td><strong>Linguagens</strong></td>
             </tr>
         </thead>
